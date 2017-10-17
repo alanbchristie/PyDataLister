@@ -24,9 +24,13 @@ print "Hello!"
 print "---"
 
 if os.path.exists(DATA_PATH):
+    print "Data directory (%s) exists and contains..." % DATA_PATH
     file_names = os.listdir(DATA_PATH)
-    for file_name in file_names:
-        print os.path.join(DATA_PATH, file_name)
+    if file_names:
+        for file_name in file_names:
+            print os.path.join(DATA_PATH, file_name)
+    else:
+        print "...Nothing!"
 else:
     print "Ooops .. the data directory does not exist! (%s)" % DATA_PATH
 
