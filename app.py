@@ -12,10 +12,12 @@ import time
 
 # Take the data path from the environment or use a default.
 DATA_PATH = os.environ.get('DATA_PATH', '/data')
+# Same with POST_LIST_SLEEP seconds
+POST_LIST_SLEEP_S = float(os.environ.get('DATA_PATH', '16.0'))
+
 # Before and after listing the directory content
 # the application pauses briefly...
 PRE_LIST_SLEEP_S = 2.0
-POST_LIST_SLEEP_S = 8.0
 
 # Sleep for a while before listing
 print "Resting before looking (%sS)..." % PRE_LIST_SLEEP_S
