@@ -116,4 +116,4 @@ else:
         sys.stdout.flush()
 
 print "Bye!"
-
+print "---"
