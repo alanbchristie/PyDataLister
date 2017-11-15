@@ -5,3 +5,7 @@ services:
   lister:
     image: alanbchristie/pydatalister:latest
     build: .
+    environment:
+      - POST_LIST_SLEEP=1
+      - POST_SLEEP_BUSY_PERIOD=120
+      - BUSY_PROCESSES=4
