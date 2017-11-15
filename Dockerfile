@@ -21,5 +21,6 @@ RUN pip install -r requirements.txt
 USER lister
 ENV HOME ${APP_ROOT}
 
-# Run app.py when the container launches
-CMD ["python", "app.py"]
+# Run app.py when the container launches.
+# Need a full path for OpenShift environment.
+CMD ["python", "/home/lister/app.py"]
