@@ -11,6 +11,8 @@
 #
 # This image can be configured (via environment variables):
 #
+# - DATA_PATH                   # Path to the data directory
+# - PRE_LIST_SLEEP              # Seconds to sleep before listing the directory
 # - POST_LIST_SLEEP             # Seconds to sleep after listing the directory
 # - POST_SLEEP_BUSY_PERIOD      # Number of seconds to look 'busy'
 # - BUSY_PROCESSES              # Number of busy processes to run
@@ -27,16 +29,12 @@ import time
 
 # Take the data path from the environment or use a default.
 DATA_PATH = os.environ.get('DATA_PATH', '/source')
-# Same with POST_LIST_BUSY_PERIOD seconds
+# Same with the rest
+PRE_LIST_SLEEP_S = float(os.environ.get('PRE_LIST_SLEEP', '20.0'))
 POST_LIST_SLEEP_S = float(os.environ.get('POST_LIST_SLEEP', '300.0'))
-# Same with POST_SLEEP_BUSY_PERIOD seconds
 POST_SLEEP_BUSY_PERIOD_S = float(os.environ.get('POST_SLEEP_BUSY_PERIOD', '0.0'))
-# How many threads to make look busy...
 BUSY_PROCESSES = int(os.environ.get('BUSY_PROCESSES', '1'))
 
-# Before listing the directory content
-# the application pauses briefly...
-PRE_LIST_SLEEP_S = 20.0
 # The complexity of the problem...
 # This factorial takes about 7-10 seconds on a 2.7GHz i7
 # (MacBook Pro (15-inch, 2016)
@@ -63,7 +61,7 @@ def thread_function(duration_s):
 # Echo configuration...
 print "---"
 print "DATA_PATH = %s" % DATA_PATH
-print "PRE_LIST_SLEEP_S = %sS (Fixed)" % PRE_LIST_SLEEP_S
+print "PRE_LIST_SLEEP_S = %sS" % PRE_LIST_SLEEP_S
 print "POST_LIST_SLEEP_S = %sS" % POST_LIST_SLEEP_S
 print "POST_SLEEP_BUSY_PERIOD_S = %sS" % POST_SLEEP_BUSY_PERIOD_S
 print "BUSY_PROCESSES = %s" % BUSY_PROCESSES
