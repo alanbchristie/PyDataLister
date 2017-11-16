@@ -68,6 +68,7 @@ print "PRE_LIST_SLEEP_S = %sS" % PRE_LIST_SLEEP_S
 print "POST_LIST_SLEEP_S = %sS" % POST_LIST_SLEEP_S
 print "POST_SLEEP_BUSY_PERIOD_S = %sS" % POST_SLEEP_BUSY_PERIOD_S
 print "BUSY_PROCESSES = %s" % BUSY_PROCESSES
+print "USE_MEMORY_M = %sMB" % USE_MEMORY_M
 print "---"
 sys.stdout.flush()
 
