@@ -34,6 +34,9 @@ PRE_LIST_SLEEP_S = float(os.environ.get('PRE_LIST_SLEEP', '20.0'))
 POST_LIST_SLEEP_S = float(os.environ.get('POST_LIST_SLEEP', '300.0'))
 POST_SLEEP_BUSY_PERIOD_S = float(os.environ.get('POST_SLEEP_BUSY_PERIOD', '0.0'))
 BUSY_PROCESSES = int(os.environ.get('BUSY_PROCESSES', '1'))
+USE_MEMORY_M = int(os.environ.get('USE_MEMORY_M', '0'))
+
+# Memory is allocated prior to the POST_LIST_SLEEP period.
 
 # The complexity of the problem...
 # This factorial takes about 7-10 seconds on a 2.7GHz i7
@@ -87,16 +90,24 @@ if os.path.exists(DATA_PATH):
 else:
     print "Ooops .. the data directory does not exist! (%s)" % DATA_PATH
 
+memory = []
+if USE_MEMORY_M:
+    print "---"
+    print "Allocating memory (%sMB)..." % USE_MEMORY_M
+    for meg in range(USE_MEMORY_M):
+        memory.append([0] * 1048576)
+
 # Sleep for a while before th optional busy cycle...
 print "---"
 print "Resting before busy (%sS)..." % POST_LIST_SLEEP_S
 sys.stdout.flush()
 time.sleep(POST_LIST_SLEEP_S)
 
-print "---"
 if POST_SLEEP_BUSY_PERIOD_S <= 0.0 or BUSY_PROCESSES <= 0:
+    print "---"
     print "Told not to look busy."
 else:
+    print "---"
     print "Trying to look busy (%sS)..." % POST_SLEEP_BUSY_PERIOD_S
     processes = []
     for i in range(1, BUSY_PROCESSES + 1):
@@ -113,5 +124,6 @@ else:
         print "- %d..." % waiting_for
         sys.stdout.flush()
 
-print "Bye!"
+print "---"
+print "Bye"
 print "---"
