@@ -1,4 +1,5 @@
-version: '2.1'
+---
+version: '3.4'
 
 services:
 
@@ -6,6 +7,8 @@ services:
     image: alanbchristie/pydatalister:latest
     build: .
     environment:
+      - PRE_LIST_SLEEP=1
       - POST_LIST_SLEEP=1
       - POST_SLEEP_BUSY_PERIOD=120
       - BUSY_PROCESSES=4
+      - USE_MEMORY_M=0

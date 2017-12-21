@@ -1,6 +1,6 @@
 # PyDataLister
 A very simple Python 3 container test application that lists files in the
-directory defined by the `DATA_PATH` environment (`/data' by default) before
+directory defined by the `DATA_PATH` environment (`/data` by default) before
 optionally consuming memory and CPU cycles using multiple threads for the
 purpose of _stress-testing_ a container run-time environment.
 
@@ -9,15 +9,15 @@ Basically something can be launched as an [OpenShift] v3.6 [Job].
 The image is configured using a number of environment variables,
 documented in `app.py`:
 
--   DATA_PATH
--   PRE_LIST_SLEEP
--   POST_LIST_SLEEP
--   POST_SLEEP_BUSY_PERIOD
--   BUSY_PROCESSES
--   USE_MEMORY_M
+-   `DATA_PATH`
+-   `PRE_LIST_SLEEP`
+-   `POST_LIST_SLEEP`
+-   `POST_SLEEP_BUSY_PERIOD`
+-   `BUSY_PROCESSES`
+-   `USE_MEMORY_M`
 
 You should be able to build and run the containerised app using
-any suitably equipped Docker host. I used a `Mac` and Docker
+any suitably equipped Docker host. I used a _Mac_ and Docker
 community edition `v17.09.1`.
 
 ## Building
