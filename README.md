@@ -13,6 +13,7 @@ documented in `app.py`:
 -   `PRE_LIST_SLEEP`
 -   `POST_LIST_SLEEP`
 -   `POST_SLEEP_BUSY_PERIOD`
+-   `POST_SLEEP_BUSY_WORK`
 -   `BUSY_PROCESSES`
 -   `USE_MEMORY_M`
 
@@ -42,5 +43,5 @@ tag our image (with something useful like `2017.1`) and then push it.
 [Job]: https://www.openshift.org
 [OpenShift]: https://www.openshift.org
 
-_Alan B. Christie_  
-_December 2017_  
+_Alan B. Christie  
+January 2018_  
